@@ -9,7 +9,8 @@ class Weather extends Component {
         high: '',
         low: '',
     };
-
+    //simple get request to get today's forecast for los angeles
+    //must change kelvin to fahrenheit and fix the decimal point to only two places
     getWeather() {
         axios.get(url)
         .then(response => this.setState({
@@ -18,7 +19,7 @@ class Weather extends Component {
             location: response.data.city.name,
         }))
     }
-
+    //When the component is ready to mount, call the function to get the data
     componentWillMount() {
         this.getWeather();
     }
